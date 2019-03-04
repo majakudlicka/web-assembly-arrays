@@ -1,18 +1,17 @@
 <html>
 <body>
-<script src="web/gen/hello.js"></script>
+<script src="gen/sum.js"></script>
 <script>
-    console.log('hello');
 
     function transferToHeap(arr) {
         const floatArray = toFloatArr(arr);
         heapSpace = Module._malloc(floatArray.length *
-            floatArray.BYTES_PER_ELEMENT); // 1
-        Module.HEAPF32.set(floatArray, heapSpace >> 2); // 2
+            floatArray.BYTES_PER_ELEMENT);
+        Module.HEAPF32.set(floatArray, heapSpace >> 2);
         return heapSpace;
 
         function toFloatArr(arr) {
-            const res = new Float32Array(arr.length); // 3
+            const res = new Float32Array(arr.length);
             for (let i = 0; i < arr.length; i++)
                 res[i] = arr[i];
             return res;
@@ -20,18 +19,18 @@
     }
 
     function sumUp(arr) {
-        let arrayOnHeap; // 4.
+        let arrayOnHeap;
         try {
             arrayOnHeap = transferToHeap(arr);
             return Module._sum_up(arrayOnHeap, arr.length);
         } finally {
-            Module._free(arrayOnHeap); // 5.
+            Module._free(arrayOnHeap);
         }
     }
 
     Module.onRuntimeInitialized = function () {
         console.log(
-            sumUp([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+            sumUp([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
         );
     }
 </script>

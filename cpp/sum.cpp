@@ -1,10 +1,6 @@
 #include <emscripten.h>
-#include <vector>
-#include <stdint.h>
-
 
 extern "C" {
-//  float sum_up(float vals[], int size);
 
     EMSCRIPTEN_KEEPALIVE
     float sum_up(float vals[], int size) {
@@ -13,9 +9,5 @@ extern "C" {
         res += vals[i];
       return res;
     }
-    int main() {
-     float vals[] = {1., 2., 3.};
-     sum_up(vals, 3);
-     return 0;
-    }
+
 }
