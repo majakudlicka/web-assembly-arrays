@@ -6,7 +6,7 @@ Both demos use compiled C++ code.
 
 Prerequisites:
 
-You don't need a compiler to run the pre-compiled examples, but in order to change any or the underlying function, Emscripten is recommended.
+You don't need a compiler to run the pre-compiled examples, but in order to change any of the underlying functions, Emscripten is recommended.
 You can download the compiler toolchain and set up env as per [official instructions](https://webassembly.org/getting-started/developers-guide/) 
 
 _Demo1_
@@ -32,3 +32,7 @@ To run:
  - node server.js
  - Go to `http://localhost:1337/` and you can see the result of `ccallArrays` wrapper function that wraps different functions using arrays as input or output parameters
  - Further info can be found [here](https://www.npmjs.com/package/wasm-arrays)
+
+To compile:
+
+`em++ example.cpp -s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" -o example.js`
