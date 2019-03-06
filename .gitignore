@@ -1,5 +1,7 @@
 .DS_Store
 node_modules/
+demo1/mode_modules
+demo2/node_modules
 dist/
 npm-debug.log*
 yarn-debug.log*

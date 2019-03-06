@@ -1,0 +1,26 @@
+{
+  "name": "@oneflow/webassembly-array-example",
+  "version": "1.0.0",
+  "description": "To run: node server.js",
+  "main": "simpleDemo/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majakudlicka/web-assembly-arrays.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majakudlicka/web-assembly-arrays/issues"
+  },
+  "homepage": "https://github.com/majakudlicka/web-assembly-arrays#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "url": "0.11.0",
+    "wasm-arrays": "1.0.2"
+  }
+}

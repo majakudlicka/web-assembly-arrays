@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Assembly</title>
+    <script src="example.js"></script>
+    <script src="node_modules/wasm-arrays/dist/wasm-arrays.min.js"></script>
+    <script>
+        "use strict"
+
+        window.addEventListener("wasmLoaded", () => {
+            console.log('wasm has loaded');
+
+            console.log(ccallArrays("get5Nums", "array", null, null, {heapOut: "HEAP32", returnArraySize: 5}));
+
+            console.log(ccallArrays("addNums", "number", ["array"], [[1,2,3,4,5]]));
+
+            console.log(ccallArrays("getSetWASMArray", "array", ["array", "number", "array"], [[1,2,3,4,5], 12345, [2, 10]], {heapIn: "HEAPF32", returnArraySize: 5}));
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
